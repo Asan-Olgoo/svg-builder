@@ -1,34 +1,30 @@
+import Shape from './shape'
+
 /**
  * Class representing a path in SVG.
  */
-class Path {
+class Path extends Shape {
   private d: string
-  private style?: string
 
   /**
    * Create a path object.
-   * @param d - A set of commands which define the path.
+   * @param {string} d - A set of commands which define the path.
    */
   constructor(d: string) {
+    super()
     this.d = d
   }
 
   /**
-   * Set the CSS style of the path.
-   * @param style - The CSS style.
-   * @returns The instance of the path.
-   */
-  css(style: string): this {
-    this.style = style
-    return this
-  }
-
-  /**
    * Render the path as string.
-   * @returns The string representing the path.
+   * @returns {string} The string representing the path.
    */
   render(): string {
-    const path = `<path d="${this.d}"` + (this.style ? ` style="${this.style}"` : '') + ' />'
+    const path =
+      `<path d="${this.d}"` +
+      (this.transform ? ` transform="${this.transform}"` : '') +
+      (this.style ? ` style="${this.style}"` : '') +
+      ' />'
     return path
   }
 }

@@ -1,62 +1,54 @@
+import Shape from './shape'
+
 /**
  * Class representing a rectangle in SVG.
  */
-class Rect {
+class Rect extends Shape {
   private width: number
   private height: number
   private x?: number
   private y?: number
   private rx?: number
   private ry?: number
-  private style?: string
 
   /**
    * Create a rectangle object.
-   * @param width - The width of the rectangle.
-   * @param height - The height of the rectangle.
+   * @param {number} width - The width of the rectangle.
+   * @param {number} height - The height of the rectangle.
    */
   constructor(width: number, height: number) {
+    super()
     this.width = width
     this.height = height
   }
 
   /**
-   * Set the coordinates of the rectangle.
-   * @param x - The x-position for the top-left corner of the rectangle.
-   * @param y - The y-position for the top-left corner of the rectangle.
-   * @returns The instance of the rectangle.
+   * Set the position of the rectangle.
+   * @param {number} x - The x-position for the top-left corner of the rectangle.
+   * @param {number} y - The y-position for the top-left corner of the rectangle.
+   * @returns {Rect} The instance of the rectangle.
    */
-  coordinates(x: number, y: number): this {
+  position(x: number, y: number): this {
     this.x = x
     this.y = y
     return this
   }
 
   /**
-   * Set the coordinates of the rectangle.
-   * @param rx - The x radius of the corners of the rectangle (used to round the corners).
-   * @param ry - The y radius of the corners of the rectangle (used to round the corners).
-   * @returns The instance of the rectangle.
+   * Set the corner radius of the rectangle.
+   * @param {number} rx - The x radius of the corners of the rectangle (used to round the corners).
+   * @param {number} ry - The y radius of the corners of the rectangle (used to round the corners).
+   * @returns {Rect} The instance of the rectangle.
    */
-  radios(rx: number, ry: number): this {
+  radius(rx: number, ry: number): this {
     this.rx = rx
     this.ry = ry
     return this
   }
 
   /**
-   * Set the CSS style of the rectangle.
-   * @param style - The CSS style.
-   * @returns The instance of the rectangle.
-   */
-  css(style: string): this {
-    this.style = style
-    return this
-  }
-
-  /**
    * Render the rectangle as string.
-   * @returns The string representing the rectangle.
+   * @returns {string} The string representing the rectangle.
    */
   render(): string {
     const rect =
@@ -65,6 +57,7 @@ class Rect {
       (this.y ? ` y="${this.y}"` : '') +
       (this.rx ? ` rx="${this.rx}"` : '') +
       (this.ry ? ` ry="${this.ry}"` : '') +
+      (this.transform ? ` transform="${this.transform}"` : '') +
       (this.style ? ` style="${this.style}"` : '') +
       ' />'
 
