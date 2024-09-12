@@ -1,5 +1,6 @@
 import * as fs from 'fs'
 import * as path from 'path'
+import {cwd} from 'process'
 
 import Rect from './rect'
 import Circle from './circle'
@@ -88,7 +89,13 @@ class SVG {
    */
   saveSVG(filePath: string): void {
     const svgContent = this.render()
-    const exportPath = path.join(__dirname, filePath)
+    const exportPath = path.join(cwd(), filePath)
+
+    const dir = path.dirname(exportPath)
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, {recursive: true})
+    }
+
     fs.writeFileSync(exportPath, svgContent)
     console.log(`SVG saved to ${exportPath}`)
   }

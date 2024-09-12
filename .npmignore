@@ -1,5 +1,7 @@
 node_modules/
+configs/
 src/
 .eslintrc
 .prettierrc
 .gitignore
+package-lock.json
