@@ -1,6 +1,6 @@
 {
   "name": "@ezptrn/svg-builder",
-  "version": "1.1.2",
+  "version": "1.2.2",
   "description": "A library for develop svg in node js",
   "author": "Asan Olgoo",
   "license": "MIT",
@@ -22,10 +22,9 @@
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
     "prepack": "npm run build"
   },
-  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.10.0",
-    "@types/node": "^22.5.4",
+    "@types/node": "^22.5.5",
     "eslint": "^9.10.0",
     "globals": "^15.9.0",
     "prettier": "^3.3.3",
