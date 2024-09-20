@@ -1,7 +1,10 @@
-node_modules/
+.github/
 configs/
+node_modules/
 src/
-.eslintrc
-.prettierrc
+tests/
 .gitignore
+.prettierrc
+eslint.config.mjs
+jest.config.ts
 package-lock.json

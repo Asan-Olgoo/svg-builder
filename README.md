@@ -119,6 +119,5 @@ Represents a text in SVG.
 ### Methods
 
 * `coordinates(x: number, y: number): Text`
-* `rotation(degree: number): Text`
 * `css(style: string): Text`
 * `render(): string`
