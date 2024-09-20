@@ -77,8 +77,8 @@ class SVG {
    */
   render(): string {
     return (
-      `<svg xmlns="http://www.w3.org/2000/svg" width="${this.width}" height="${this.height}">` +
-      this.elements.map(element => element.render()).join('') +
+      `<svg width="${this.width}" height="${this.height}">` +
+      this.elements.map(element => element.render()).join('\n') +
       '</svg>'
     )
   }
@@ -92,12 +92,9 @@ class SVG {
     const exportPath = path.join(cwd(), filePath)
 
     const dir = path.dirname(exportPath)
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, {recursive: true})
-    }
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, {recursive: true})
 
     fs.writeFileSync(exportPath, svgContent)
-    console.log(`SVG saved to ${exportPath}`)
   }
 }
 
